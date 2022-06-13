@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -68,6 +69,19 @@ public class PokedexService {
 			if (pokemon.getNum().equals(numPokemon)) {
 				pokedex.remove(i);
 				pokedex.add(pokemon);
+			}
+		}
+	}
+
+	@DELETE
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("./PokedexJava/pokedex.json/{pokemonNum}")
+	public void deletePokemon(String numPokemon) {
+		Pokemon pokemon = null;
+		for (int i = 0; i <= pokedex.size(); i++) {
+			pokemon = pokedex.get(i);
+			if (pokemon.getNum().equals(numPokemon)) {
+				pokedex.remove(i);
 			}
 		}
 	}
