@@ -45,7 +45,7 @@ public class PokedexService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("./PokedexJava/pokedex.json/{pokemonNum}")
+	@Path("/pokemon")
 	public Pokemon getPokemon(@PathParam("pokemonNum") String num) {
 		Pokemon pokemon = null;
 
@@ -61,22 +61,25 @@ public class PokedexService {
 
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("./PokedexJava/pokedex.json/{pokemonNum}")
-	public void putPokemon(String numPokemon) {
+	@Path("/pokemon")
+	public Pokemon putPokemon(String numPokemon) {
 		Pokemon pokemon = null;
 		for (int i = 0; i <= pokedex.size(); i++) {
 			pokemon = pokedex.get(i);
 			if (pokemon.getNum().equals(numPokemon)) {
 				pokedex.remove(i);
 				pokedex.add(pokemon);
+				return pokemon;
 			}
 		}
+
+		return pokemon;
 	}
 
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("./PokedexJava/pokedex.json/{pokemonNum}")
-	public void deletePokemon(String numPokemon) {
+	@Path("/pokemon")
+	public Pokemon deletePokemon(String numPokemon) {
 		Pokemon pokemon = null;
 		for (int i = 0; i <= pokedex.size(); i++) {
 			pokemon = pokedex.get(i);
@@ -84,11 +87,13 @@ public class PokedexService {
 				pokedex.remove(i);
 			}
 		}
+
+		return pokemon;
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("./PokedexJava/pokedex.json/{pokemonNum}")
+	@Path("/pokemon")
 	public List<Pokemon> getPokemons() {
 		if (!pokedex.isEmpty()) {
 			return pokedex;
