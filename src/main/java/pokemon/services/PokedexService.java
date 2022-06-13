@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -55,6 +56,20 @@ public class PokedexService {
 		}
 
 		throw new WebApplicationException(404);
+	}
+
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("./PokedexJava/pokedex.json/{pokemonNum}")
+	public void putPokemon(String numPokemon) {
+		Pokemon pokemon = null;
+		for (int i = 0; i <= pokedex.size(); i++) {
+			pokemon = pokedex.get(i);
+			if (pokemon.getNum().equals(numPokemon)) {
+				pokedex.remove(i);
+				pokedex.add(pokemon);
+			}
+		}
 	}
 
 	@GET
