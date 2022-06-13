@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.javamagazine</groupId>
+  <artifactId>pokemon</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>pokedexjava</name>
+  <dependencies>	
+<!-- 	<dependency> -->
+<!-- 		<groupId>br.com.javamagazine</groupId> -->
+<!-- 		<artifactId>contacts-api</artifactId> -->
+<!-- 		<version>0.0.1-SNAPSHOT</version> -->
+<!-- 	</dependency> -->
+	<dependency>
+		<groupId>org.glassfish.jersey.containers</groupId>
+		<artifactId>jersey-container-servlet</artifactId>
+		<version>2.0</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.glassfish.jersey.media</groupId>
+		<artifactId>jersey-media-moxy</artifactId>
+		<version>2.0</version>
+	</dependency>
+  </dependencies>
+</project>
