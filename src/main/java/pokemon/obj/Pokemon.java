@@ -20,6 +20,7 @@ public class Pokemon {
 	private List<Integer> multipliers;
 	private List<String> weakness;
 	private List<List<String>> next_evolution;
+	private List<List<String>> pre_evolution;
 
 	public Pokemon() {
 
@@ -151,6 +152,14 @@ public class Pokemon {
 
 	public void setNext_evolution(List<List<String>> next_evolution) {
 		this.next_evolution = next_evolution;
+	}
+
+	public List<List<String>> getPre_evolution() {
+		return pre_evolution;
+	}
+
+	public void setPre_evolution(List<List<String>> pre_evolution) {
+		this.pre_evolution = pre_evolution;
 	}
 
 }
