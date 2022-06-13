@@ -57,4 +57,15 @@ public class PokedexService {
 		throw new WebApplicationException(404);
 	}
 
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("./PokedexJava/pokedex.json/{pokemonNum}")
+	public List<Pokemon> getPokemons() {
+		if (!pokedex.isEmpty()) {
+			return pokedex;
+		} else {
+			throw new WebApplicationException(404);
+		}
+	}
+
 }
